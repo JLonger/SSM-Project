@@ -1,0 +1,5 @@
+说明：
+使用IDEA创建多模块的聚合项目：
+其中dao和service模块项目是创建的java项目(直接选择Maven创建即可)
+web和web2模块项目是创建的web项目(选择Maven后选择其中的webapp选项进行创建)
+这四个模块项目都是在Module_Project(父项目)下创建的子模块项目。
