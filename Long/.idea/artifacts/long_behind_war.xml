@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="long-behind:war">
+    <output-path>$PROJECT_DIR$/long-behind/target</output-path>
+    <root id="archive" name="long-behind.war">
+      <element id="artifact" artifact-name="long-behind:war exploded" />
+    </root>
+  </artifact>
+</component>

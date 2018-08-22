@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="long-behind" />
+        <module name="long-dao" />
+        <module name="long-front" />
+        <module name="long-service" />
+        <module name="long-utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Long" target="1.7" />
+      <module name="long-behind" target="1.7" />
+      <module name="long-dao" target="1.7" />
+      <module name="long-front" target="1.7" />
+      <module name="long-service" target="1.7" />
+      <module name="long-utils" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

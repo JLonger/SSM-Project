@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--&lt;!&ndash; 线程执行器配置，用于任务注册 &ndash;&gt;
+    <bean id="executor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10"/>
+        <property name="maxPoolSize" value="100"/>
+        <property name="queueCapacity" value="500"/>
+    </bean>
+
+    &lt;!&ndash; 定义一个任务类 &ndash;&gt;
+    <bean id="myJob" class="com.long.demo.task.TestQuartz1"></bean>
+
+    &lt;!&ndash; jobDetail &ndash;&gt;
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="myJob"></property>
+        <property name="targetMethod" value="test1"></property>
+        <property name="concurrent" value="false"/>&lt;!&ndash; 作业不并发调度  &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; 定义trigger 触发器 &ndash;&gt;
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"></property>
+        <property name="cronExpression" value="0/10 * * * * ?"></property>
+    </bean>
+
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger"/>
+            </list>
+        </property>
+        <property name="taskExecutor" ref="executor" />
+    </bean>-->
+</beans>

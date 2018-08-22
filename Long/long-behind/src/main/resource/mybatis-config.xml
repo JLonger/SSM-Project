@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置日志 -->
+    <!--<settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>-->
+
+    <!-- 别名定义 -->
+    <typeAliases>
+        <package name="com.jing.*"/>
+    </typeAliases>
+</configuration>

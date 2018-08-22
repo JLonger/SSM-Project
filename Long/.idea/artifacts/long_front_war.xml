@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="long-front:war">
+    <output-path>$PROJECT_DIR$/long-front/target</output-path>
+    <root id="archive" name="long-front.war">
+      <element id="artifact" artifact-name="long-front:war exploded" />
+    </root>
+  </artifact>
+</component>

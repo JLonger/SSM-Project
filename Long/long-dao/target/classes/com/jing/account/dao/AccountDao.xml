@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.jing.account.dao.AccountDao">
+
+    <resultMap id="BaseResultMap" type="com.jing.account.po.AccountPO">
+        <result column="ID" property="id"/>
+        <result column="SEX" property="sex"/>
+        <result column="NICK_NAME" property="nickName"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="HEAD_IMG" property="headImg"/>
+        <result column="EXPERIENCE_VALUE" property="experienceValue"/>
+    </resultMap>
+
+
+    <select id="findByNamePwd" resultMap="BaseResultMap" parameterType="String">
+        SELECT
+        ID,
+        NICK_NAME,
+        PASSWORD
+        FROM account
+        WHERE
+        NICK_NAME = #{ nickName} AND PASSWORD = #{password}
+    </select>
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="String">
+        SELECT
+            ID,
+            SEX,
+            NICK_NAME,
+            HEAD_IMG,
+            EXPERIENCE_VALUE
+        FROM account
+        WHERE
+            ID = #{ id}
+    </select>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT
+            ID,
+            SEX,
+            NICK_NAME,
+            HEAD_IMG,
+            EXPERIENCE_VALUE
+        FROM account
+    </select>
+
+    <delete id="delete" parameterType="String">
+        DELETE FROM account
+        WHERE
+            ID = #{ id}
+    </delete>
+
+    <insert id="create" parameterType="com.jing.account.po.AccountPO">
+        INSERT INTO account (ID, SEX, NICK_NAME, HEAD_IMG, EXPERIENCE_VALUE)
+        VALUES (
+            #{ id, javaType=String, jdbcType=VARCHAR},
+            #{ sex, javaType=String, jdbcType=CHAR},
+            #{ nickName, javaType=String, jdbcType=VARCHAR},
+            #{ headImg, javaType=String, jdbcType=VARCHAR},
+            #{ experienceValue, javaType=long, jdbcType=BIGINT}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.jing.account.po.AccountPO">
+        UPDATE account
+        SET
+            SEX              = #{ sex, javaType=String, jdbcType=CHAR},
+            NICK_NAME        = #{ nickName, javaType=String, jdbcType=VARCHAR},
+            HEAD_IMG         = #{ headImg, javaType=String, jdbcType=VARCHAR},
+            EXPERIENCE_VALUE = #{ experienceValue, javaType=long, jdbcType=BIGINT}
+        WHERE
+            ID = #{ id}
+    </update>
+
+    <select id="listForPage" resultMap="BaseResultMap" parameterType="hashmap">
+        SELECT
+            ID,
+            SEX,
+            NICK_NAME,
+            HEAD_IMG,
+            EXPERIENCE_VALUE
+        FROM account
+    </select>
+
+    <delete id="deletes">
+        delete from account
+        where id in
+        <foreach collection="array" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>
